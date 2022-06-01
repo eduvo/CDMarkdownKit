@@ -63,7 +63,7 @@ internal extension NSMutableAttributedString {
 
     func addLink(_ link: URL,
                  toRange range: NSRange) {
-        self.addAttribute(NSAttributedString.Key.attachment,
+        self.addAttribute(NSAttributedString.Key.link,
                           value: link,
                           range: range)
     }

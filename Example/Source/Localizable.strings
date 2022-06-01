@@ -6,3 +6,6 @@
   Copyright © 2018 Christopher de Haan. All rights reserved.
 */
 "Markdown" = "[Click Here](http://www.reddit.com/rules)";
+
+//"Markdown" = "**[Click Here](http://www.reddit.com/rules)**
+//\n\n *[Click Here](http://www.reddit.com/rules)* \n\n [Click Here](http://www.reddit.com/rules) \n\nThey are all \n`\npretty straight \nforward\n`\n and ea**s**y to u_n_derstand, but if you ```\n\n\nwould like \n more information```\n";
