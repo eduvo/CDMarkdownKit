@@ -33,7 +33,7 @@
 
 open class CDMarkdownLink: CDMarkdownLinkElement {
 
-    fileprivate static let regex = "[^!{1}]\\[([^\\[]*?)\\]\\(([^\\)]*)\\)"
+    fileprivate static let regex = "(?:__|[*#])|\\[(.*?)\\]\\(.*?\\)"
 
     open var font: CDFont?
     open var color: CDColor?
@@ -74,7 +74,8 @@ open class CDMarkdownLink: CDMarkdownLinkElement {
 
     open func match(_ match: NSTextCheckingResult,
                     attributedString: NSMutableAttributedString) {
-        guard match.numberOfRanges == 3 else { return }
+        guard match.numberOfRanges == 2 else { return }
+        guard match.range.length != 1 else { return }
 
         let nsString = attributedString.string as NSString
         let linkStartInResult = nsString.range(of: "(",
@@ -88,14 +89,19 @@ open class CDMarkdownLink: CDMarkdownLinkElement {
         // deleting trailing markdown
         // needs to be called before formattingBlock to support modification of length
         attributedString.deleteCharacters(in: NSRange(location: linkRange.location - 1,
-                                                      length: linkRange.length + 2))
+                                                      length: linkRange.length + 1))
 
         // deleting leading markdown
         // needs to be called before formattingBlock to provide a stable range
-        attributedString.deleteCharacters(in: NSRange(location: match.range.location + 1,
+        attributedString.deleteCharacters(in: NSRange(location: match.range.location + 0,
                                                       length: 1))
-        let formatRange = NSRange(location: match.range.location + 1,
-                                  length: linkStartInResult - match.range.location - 3)
+        
+        attributedString.deleteCharacters(in: NSRange(location: attributedString.length - 1,
+                                                      length: 1))
+        
+        
+        let formatRange = NSRange(location: match.range.location,
+                                  length: linkStartInResult - match.range.location - 2)
 
         formatText(attributedString,
                    range: formatRange,
