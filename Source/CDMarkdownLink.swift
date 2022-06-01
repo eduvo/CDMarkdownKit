@@ -105,10 +105,10 @@ open class CDMarkdownLink: CDMarkdownLinkElement {
                       link: linkURLString)
     }
     
-    open func addLink(_ link: URL,
-                 toRange range: NSRange) {
-        self.addAttribute(NSAttributedString.Key.attachment,
-                          value: link,
-                          range: range)
+    open func addAttributes(_ attributedString: NSMutableAttributedString,
+                            range: NSRange,
+                            link: String) {
+        attributedString.addAttributes(attributes,
+                                       range: range)
     }
 }
