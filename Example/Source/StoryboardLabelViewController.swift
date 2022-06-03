@@ -25,7 +25,7 @@
 //  THE SOFTWARE.
 //
 
-import CDMarkdownKit
+import MBCDMarkdownKit
 import UIKit
 
 class StoryboardLabelViewController: BaseViewController {

@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CDMarkdownKit.xcodeproj">
+      location = "group:/Users/vadymkozak/Documents/faria/CDMarkdownKit/MBCDMarkdownKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Example/iOS Example.xcodeproj">

@@ -29,7 +29,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "CDMarkdownKit",
+    name: "MBCDMarkdownKit",
     platforms: [
         .macOS(.v10_12),
         .iOS(.v10),
@@ -38,13 +38,13 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "CDMarkdownKit",
-            targets: ["CDMarkdownKit"]
+            name: "MBCDMarkdownKit",
+            targets: ["MBCDMarkdownKit"]
         )
     ],
     targets: [
         .target(
-            name: "CDMarkdownKit",
+            name: "MBCDMarkdownKit",
             path: "Source"
         )
     ],
